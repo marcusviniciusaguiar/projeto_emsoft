@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <!-- Bootstrap --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/css/bootstrap.css" integrity="sha512-Dg29JTs/r029HFd/aOkPcgmeELzRHukL99WqC7FPC+oyF4DClbMLlQANt5tXI1sgjpBGbcQIRqR4YNjI2LbNeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <!-- CSS do projeto -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main-container" class="container-fluid">
+        <div class="col-md-12">
+            <div class="row" id="auth-row">
+                <div class="col-md-4 align-items-center" id="login-container">
+                    <img src="https://www.emsoft.inf.br/wp-content/uploads/2018/08/logo_horizontal_208x52_orange.png" alt="Logo Emsoft" >
+                    <form id="cep-form" action="backend/api.php" method="POST">
+                        <div id="cep-section">
+                            <label for="cep">CEP</label>    
+                            <input type="text" id="cep" class="form-control" maxlength="8" placeholder="Insira o CEP" required>
+                            <button type="button" class="btn buscar-btn" id="buscar-btn" onclick="buscarCEP()">Buscar</button>
+                            <input type="hidden" id="confirmaCep">
+                        </div>
+
+                        <div id="loader" class="hidden">
+                            <div class="spinner"></div>
+                        </div>
+
+                        <div id="result-section" class="">
+                            <label class="padding">Endereço</label>
+                            <input type="text" readonly class="form-control disabled" id="address">
+                        
+                            <label class="padding">Bairro</label>
+                            <input type="text" readonly class="form-control disabled" id="hood">
+                        
+                            <label class="padding">Cidade</label>
+                            <input type="text" readonly class="form-control disabled" id="city">
+                        
+                            <label class="padding">Estado</label>
+                            <input type="text" readonly class="form-control disabled" id="state">
+
+                            <label class="padding">País</label>
+                            <input type="text" readonly class="form-control disabled" id="country" value="Brasil">
+
+                            <button type="button" class="btn enviar-btn" id="enviar-btn" onclick="enviarDados()">Enviar</button>
+
+                            <p id="feedback"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
